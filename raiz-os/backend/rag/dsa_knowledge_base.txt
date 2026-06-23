@@ -1,0 +1,107 @@
+## Two Sum — HashMap Pattern
+Problem: Find two indices that add up to target.
+Pattern: HashMap complement lookup.
+Key insight: For each element x, check if (target - x) exists in a hash map.
+Time: O(n), Space: O(n)
+Brute force: O(n²) — nested loop checking all pairs.
+Interview note: Always mention brute force O(n²) first, then optimize to O(n).
+
+## Sliding Window — Fixed Size
+Pattern: Maintain a window of size k, slide across array.
+Key insight: Add right element, remove left element on each step.
+Use for: Maximum subarray sum of size k, average of subarrays.
+Time: O(n), Space: O(1)
+Trigger words: "subarray of size k", "consecutive", "window".
+
+## Sliding Window — Variable Size
+Pattern: Expand right pointer, shrink left when constraint violated.
+Key insight: Two pointers on same array moving in same direction.
+Use for: Longest substring without repeating chars, smallest subarray with sum >= S.
+Time: O(n), Space: O(k) where k is window content.
+Trigger words: "longest", "shortest", "at most k distinct".
+
+## Two Pointers — Opposite Ends
+Pattern: Left pointer at start, right pointer at end, move based on condition.
+Use for: Two Sum II (sorted array), Container With Most Water, Valid Palindrome.
+Key insight: Sorted array allows directional movement based on comparison.
+Time: O(n), Space: O(1)
+Trigger words: "sorted array", "pair", "palindrome".
+
+## Binary Search
+Pattern: Divide search space in half each iteration.
+Key insight: Works on monotonic search spaces, not just sorted arrays.
+Template: lo=0, hi=n-1, while lo<=hi, mid=(lo+hi)//2
+Use for: Search in rotated array, find minimum in rotated, peak element.
+Time: O(log n), Space: O(1)
+Trigger words: "sorted", "find position", "minimum in rotated".
+
+## Dynamic Programming — 1D
+Pattern: dp[i] = optimal solution using first i elements.
+Key insight: Current solution depends on previous subproblem solutions.
+Use for: Climbing stairs, house robber, coin change.
+Template: Define subproblem, write recurrence, implement bottom-up.
+Time: O(n), Space: O(n) or O(1) with optimization.
+
+## Dynamic Programming — 2D
+Pattern: dp[i][j] = optimal for substring/subarray ending at i,j.
+Use for: Longest Common Subsequence, Edit Distance, Unique Paths.
+Key insight: Fill table row by row, each cell depends on neighbors.
+Time: O(m*n), Space: O(m*n) or O(n) with optimization.
+
+## BFS — Level Order Traversal
+Pattern: Queue-based traversal, process level by level.
+Use for: Shortest path in unweighted graph, level order tree traversal.
+Key insight: Queue guarantees level-by-level processing.
+Time: O(V+E), Space: O(V)
+Template: queue = deque([start]), visited = set([start])
+
+## DFS — Graph/Tree
+Pattern: Stack-based (recursive or explicit), explore deep first.
+Use for: Path existence, connected components, cycle detection.
+Key insight: Track visited to avoid cycles in graphs.
+Time: O(V+E), Space: O(V)
+
+## Backtracking
+Pattern: Try option → recurse → undo option (backtrack).
+Use for: Permutations, combinations, subsets, N-Queens.
+Key insight: Build solution incrementally, abandon when constraint violated.
+Time: O(n! or 2^n), Space: O(n) recursion depth.
+
+## Greedy
+Pattern: Make locally optimal choice at each step.
+Use for: Jump Game, Meeting Rooms, Activity Selection.
+Key insight: Prove greedy choice property before coding.
+Time: usually O(n) or O(n log n), Space: O(1)
+
+## Monotonic Stack
+Pattern: Stack that maintains increasing or decreasing order.
+Use for: Next Greater Element, Daily Temperatures, Largest Rectangle.
+Key insight: Pop when current element breaks the monotonic property.
+Time: O(n) amortized, Space: O(n)
+
+## Heap / Priority Queue
+Pattern: Min-heap or Max-heap for efficient extreme extraction.
+Use for: K-th largest, merge K sorted lists, top K frequent.
+Key insight: heapq in Python is min-heap; negate for max-heap.
+Time: O(n log k), Space: O(k)
+
+## HashMap Frequency Count
+Pattern: Count occurrences, then analyze counts.
+Use for: Anagram detection, duplicate finding, majority element.
+Key insight: Two strings are anagrams if their frequency maps are equal.
+Time: O(n), Space: O(k) where k is alphabet size.
+
+## Prefix Sum
+Pattern: presum[i] = sum of first i elements.
+Use for: Range sum queries, subarray sum equals k.
+Key insight: sum(i,j) = presum[j] - presum[i-1]
+Time: O(n) build, O(1) query, Space: O(n)
+
+## Common Interview Mistakes
+1. Not handling empty array edge case
+2. Integer overflow in Java/C++ (use long)
+3. Off-by-one errors in binary search
+4. Not considering duplicate values
+5. Returning indices vs values (read problem carefully)
+6. Forgetting to check negative numbers
+7. Modifying input array without asking interviewer
