@@ -1,8 +1,16 @@
-venv/
-.venv/
-env/
+# venv/
+# .venv/
+# env/
 
+# __pycache__/
+# *.pyc
+
+# .env
+
+
+venv/
+.env
 __pycache__/
 *.pyc
-
-.env
+node_modules/
+.next/
