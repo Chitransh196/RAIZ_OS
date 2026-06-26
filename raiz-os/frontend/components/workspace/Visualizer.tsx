@@ -162,7 +162,7 @@ export default function Visualizer() {
   const [showPicker, setShowPicker] = useState(false);
   const playRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  const algo  = ALGORITHMS[algoKey];
+  const algo = ALGORITHMS[algoKey] as typeof ALGORITHMS[AlgoKey];
   const steps = algo.steps as VizStep[];
   const current = steps[Math.min(stepIdx, steps.length - 1)];
   const isDone = stepIdx >= steps.length - 1;
@@ -250,16 +250,15 @@ export default function Visualizer() {
 
         {/* Visual */}
         <div className="min-h-[140px] flex items-center justify-center">
-          {algoKey === "BFS Traversal" ? (
-            <BFSViz step={current} />
-          ) : (
-            <ArrayViz
-              arr={(algo.input as (number|string)[]) ?? []}
+          {algoKey === "BFS Traversal"
+            ? <BFSViz step={current} />
+            : <ArrayViz
+              arr={(algo.input as (number | string)[]) || []}
               step={current}
               algo={algoKey}
             />
-          )}
-        </div>
+        }
+      </div>
 
         {/* HashMap state (Two Sum only) */}
         {algoKey === "HashMap: Two Sum" && (current.extra as Record<string,unknown>)?.seen && (
