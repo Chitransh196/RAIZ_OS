@@ -246,7 +246,7 @@ export default function Visualizer() {
       {/* Visualization area */}
       <div className="flex-1 overflow-y-auto p-3 space-y-3">
         {/* Description */}
-        <p className="text-[11px] text-text-muted leading-relaxed">{algo.description}</p>
+        <p className="text-[11px] text-text-muted leading-relaxed">{String(algo.description)}</p>
 
         {/* Visual */}
         <div className="min-h-[140px] flex items-center justify-center">
